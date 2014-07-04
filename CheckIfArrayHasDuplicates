@@ -1,0 +1,39 @@
+using System;
+
+namespace SimpleProblems
+{
+    public class CheckIfArrayHasDuplicates
+    {
+        /// <summary>
+        /// Checks if the array contains duplicate numbers
+        /// </summary>
+        /// <param name="array">array with int values</param>
+        /// <returns>true - it has duplicates; false - all values are unique</returns>
+        public bool ArrayHasDuplicateValues(int[] array)
+        {
+            bool hasDuplicates = false;
+
+            //check if array is not null and if it has elements
+            if (array != null && array.Length > 0)
+            {
+                for (int i = 0; i < array.Length; i++)
+                {
+                    //checks if the value pointed by the index (Math.Abs(array[i]) - 1) is bigger than zero
+                    if (array[Math.Abs(array[i]) - 1] > 0)
+                    {
+                        //if it is, make it negative
+                        array[Math.Abs(array[i]) - 1] = array[Math.Abs(array[i]) - 1] * (-1);
+                    }
+                    else
+                    {
+                        //value is lower than 0, which means it has been visited before
+                        hasDuplicates = true;
+                        break;
+                    }
+                }
+            }
+
+            return hasDuplicates;
+        }
+    }
+}
