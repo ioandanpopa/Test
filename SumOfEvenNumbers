@@ -1,0 +1,36 @@
+
+namespace SimpleProblems
+{
+    public class SumOfEvenNumbers
+    {
+        #region Methods
+
+        /// <summary>
+        /// Calculates the sum of even numbers in an array
+        /// </summary>
+        /// <param name="array">array with int values</param>
+        /// <returns>sum of the even numbers as integer</returns>
+        public int CalcSumOfEvenNumbers(int[] array)
+        {
+            int sum = 0;
+
+            //check if array is not null and if it has elements
+            if (array != null && array.Length > 0)
+            {
+                for (int i = 0; i < array.Length; i++)
+                {
+                    //if current value divides by 2 perfectly
+                    if (array[i] % 2 == 0)
+                    {
+                        //add to sum
+                        sum += array[i];
+                    }
+                }
+            }
+
+            return sum;
+        }
+
+        #endregion
+    }
+}
